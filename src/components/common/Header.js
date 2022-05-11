@@ -11,17 +11,34 @@ import {
     NavLink 
 } from 'react-bootstrap';
 import { RiSearch2Line, RiShoppingCartLine } from 'react-icons/ri'
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <div>
         <Navbar bg="dark" variant="dark">
             <Container>
-                <NavbarBrand href='/'>Place for Logo</NavbarBrand>
+                <NavbarBrand>
+                    <Link to='/'>
+                        Place for Logo
+                    </Link>
+                </NavbarBrand>
                 <Nav>
-                    <NavLink href="/">Home</NavLink>
-                    <NavLink href="/">Chekout</NavLink>
-                    <NavLink href="/">About</NavLink>
+                    <NavLink>
+                        <Link to='/'>
+                            Home
+                        </Link>
+                    </NavLink>
+                    <NavLink>
+                        <Link to='/chekout'>
+                            Chekout
+                        </Link>
+                    </NavLink>
+                    <NavLink>
+                        <Link to='/about'>
+                            About
+                        </Link>
+                    </NavLink>
                 </Nav>
                 <Form className="d-flex">
                     <FormControl
