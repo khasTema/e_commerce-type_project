@@ -11,34 +11,23 @@ import {
     NavLink 
 } from 'react-bootstrap';
 import { RiSearch2Line, RiShoppingCartLine } from 'react-icons/ri'
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+
+    let navigate = useNavigate();
+
   return (
     <div>
         <Navbar bg="dark" variant="dark">
             <Container>
-                <NavbarBrand>
-                    <Link to='/'>
+                <NavbarBrand onClick={() => {navigate('/')}}>
                         Place for Logo
-                    </Link>
                 </NavbarBrand>
                 <Nav>
-                    <NavLink>
-                        <Link to='/'>
-                            Home
-                        </Link>
-                    </NavLink>
-                    <NavLink>
-                        <Link to='/chekout'>
-                            Chekout
-                        </Link>
-                    </NavLink>
-                    <NavLink>
-                        <Link to='/about'>
-                            About
-                        </Link>
-                    </NavLink>
+                    <NavLink onClick={() => {navigate('/')}} >Home</NavLink>
+                    <NavLink onClick={() => {navigate('/chekout')}} >Chekout</NavLink>
+                    <NavLink onClick={() => {navigate('/about')}} >About</NavLink>
                 </Nav>
                 <Form className="d-flex">
                     <FormControl
@@ -50,7 +39,7 @@ const Header = () => {
                         <RiSearch2Line/>
                     </Button>
                 </Form>
-                <Button variant="warning">
+                <Button variant="warning" onClick={()=> {navigate('/chekout')}} >
                     <RiShoppingCartLine/>
                     <Badge pill bg="danger">10</Badge>
                 </Button> 
