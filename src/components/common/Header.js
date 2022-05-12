@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../../images/logo_transparent.png'
 import { 
     Badge,
     Button, 
@@ -22,7 +23,9 @@ const Header = () => {
         <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
                 <NavbarBrand onClick={() => {navigate('/')}}>
-                        Place for Logo
+                    <div className="logo_place" style={{width: 175, height: 75, cursor: "pointer"}}>
+                        <img src={logo} alt="some shop logo" style={{width:"100%", height: "100%",objectFit: 'cover'}}/>
+                    </div>
                 </NavbarBrand>
                 <Nav>
                     <NavLink onClick={() => {navigate('/')}} >Home</NavLink>
