@@ -1,7 +1,11 @@
 import React from 'react'
 import { Card, Col, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const ProductCard = ({number, price}) => {
+
+    let navigate = useNavigate();
+
   return (
     <Col>
         <Card style={{ width: '18rem', marginTop: '2em' }}>
@@ -13,7 +17,8 @@ const ProductCard = ({number, price}) => {
                     the card's content.</p>
                     <span>Price: {price}$</span>
                 </Card.Text>
-                <Button variant="danger">ADD TO CART</Button>
+                <Button variant="danger" size="sm" style={{marginRight: '1em'}}>ADD TO CART</Button>
+                <Button variant="outline-secondary" size="sm" onClick={()=>{navigate("/product")}}>VIEW PRODUCT</Button>
             </Card.Body>
         </Card>
     </Col>

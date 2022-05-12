@@ -14,6 +14,8 @@ const Store = () => {
                 <ProductCard number={4} price={15.55}/>
                 <ProductCard number={5} price={133.99}/>
                 <ProductCard number={6} price={8.99}/> 
+                <ProductCard number={7} price={133.99}/>
+                <ProductCard number={8} price={8.99}/> 
             </Row>
         </Container>
     </div>
