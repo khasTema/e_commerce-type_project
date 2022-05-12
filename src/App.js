@@ -1,10 +1,25 @@
 
 import './App.css';
+import Footer from './components/common/Footer';
+import Header from './components/common/Header';
+import Home from './components/pages/Home';
+import { Routes, Route } from "react-router-dom";
+import Chekout from './components/pages/Chekout';
+import About from './components/pages/About';
+import ProductPage from './components/pages/ProductPage';
+
 
 function App() {
   return (
     <div className="App">
-      Hello Worls! This will be an e-commerce type site
+      <Header/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/chekout" element={<Chekout />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/product" element={<ProductPage />} />
+      </Routes>
+      <Footer/>
     </div>
   );
 }

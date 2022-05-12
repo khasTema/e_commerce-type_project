@@ -1,0 +1,11 @@
+/* a {
+  text-decoration: none !important;
+  color: lightgrey !important;
+} */
+
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
