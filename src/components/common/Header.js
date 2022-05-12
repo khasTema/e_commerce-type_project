@@ -19,18 +19,16 @@ const Header = () => {
 
   return (
     <div>
-        <Navbar bg="dark" variant="dark">
+        <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
                 <NavbarBrand onClick={() => {navigate('/')}}>
                         Place for Logo
                 </NavbarBrand>
-                
-                <Nav >
+                <Nav>
                     <NavLink onClick={() => {navigate('/')}} >Home</NavLink>
                     <NavLink onClick={() => {navigate('/chekout')}} >Chekout</NavLink>
                     <NavLink onClick={() => {navigate('/about')}} >About</NavLink>
                 </Nav>
-              
                 <Form className="d-flex">
                     <FormControl
                         type="search"

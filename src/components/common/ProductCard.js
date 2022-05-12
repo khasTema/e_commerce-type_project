@@ -9,7 +9,7 @@ const ProductCard = ({number, price}) => {
   return (
     <Col>
         <Card style={{ width: '18rem', marginTop: '2em' }}>
-            <Card.Img variant="top" src="https://via.placeholder.com/20x15" />
+            <Card.Img variant="top" src={`https://picsum.photos/200/150?random=${number}`} />
             <Card.Body>
                 <Card.Title>Product {number}</Card.Title>
                 <Card.Text>
