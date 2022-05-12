@@ -8,10 +8,10 @@ const Thankyou = () => {
 
   return (
     <div>
-        <Container>
-            <h3 className="display-3 text-center">Thank you!</h3>
-            <p className='text-center'>Your order is placed. Our manager will contact you shortly for details!</p>
-            <Button variant='danger' style={{margin: "0 auto"}} onClick={()=>{navigate("/")}}>Continue shopping</Button>
+        <Container style={{textAlign: 'center'}}>
+            <h3 className="display-3 ">Thank you!</h3>
+            <p>Your order is placed. Our manager will contact you shortly for details!</p>
+            <Button variant='outline-danger' onClick={()=>{navigate("/")}}>Continue shopping</Button>
         </Container>
     </div>
   )

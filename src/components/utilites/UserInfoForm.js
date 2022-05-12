@@ -6,10 +6,10 @@ const UserInfoForm = () => {
 
     let navigate = useNavigate();
 
-    // function handleSubmit(e) {
-    //     e.preventDefault();
-    //     navigate("/thankyou");
-    // }
+    function handleSubmit(e) {
+        e.preventDefault();
+        navigate("/thankyou");
+    }
 
   return (
     <div className='userInfoForm'>
@@ -45,7 +45,7 @@ const UserInfoForm = () => {
             </Form.Group>
             </Row>
         
-            <Button variant="primary" type="submit" onClick={() => {navigate("/thankyou")}}>
+            <Button variant="primary" type="submit" onClick={(e) => handleSubmit(e)}>
                 Place Order
             </Button>
         </Form>
