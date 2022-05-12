@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../images/logo_transparent.png'
+import logo from '../../images/logo_transparent.png';
 import { 
     Badge,
     Button, 

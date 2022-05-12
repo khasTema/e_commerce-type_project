@@ -1,7 +1,16 @@
 import React from 'react';
 import { Form, Row, Col, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const UserInfoForm = () => {
+
+    let navigate = useNavigate();
+
+    // function handleSubmit(e) {
+    //     e.preventDefault();
+    //     navigate("/thankyou");
+    // }
+
   return (
     <div className='userInfoForm'>
         <h3 className='display-5 text-center'>Please fill your shipping information</h3>
@@ -13,8 +22,8 @@ const UserInfoForm = () => {
             </Form.Group>
         
             <Form.Group as={Col} controlId="formGridPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Label>Cellphone</Form.Label>
+                <Form.Control type="phone" placeholder="Cellphnone" />
             </Form.Group>
             </Row>
         
@@ -23,10 +32,6 @@ const UserInfoForm = () => {
             <Form.Control placeholder="1234 Main St" />
             </Form.Group>
         
-            <Form.Group className="mb-3" controlId="formGridAddress2">
-            <Form.Label>Address 2</Form.Label>
-            <Form.Control placeholder="Apartment, studio, or floor" />
-            </Form.Group>
         
             <Row className="mb-3">
             <Form.Group as={Col} controlId="formGridCity">
@@ -34,26 +39,14 @@ const UserInfoForm = () => {
                 <Form.Control />
             </Form.Group>
         
-            <Form.Group as={Col} controlId="formGridState">
-                <Form.Label>State</Form.Label>
-                <Form.Select defaultValue="Choose...">
-                <option>Choose...</option>
-                <option>...</option>
-                </Form.Select>
-            </Form.Group>
-        
             <Form.Group as={Col} controlId="formGridZip">
                 <Form.Label>Zip</Form.Label>
                 <Form.Control />
             </Form.Group>
             </Row>
-    
-            <Form.Group className="mb-3" id="formGridCheckbox">
-            <Form.Check type="checkbox" label="Check me out" />
-            </Form.Group>
         
-            <Button variant="primary" type="submit">
-                Submit
+            <Button variant="primary" type="submit" onClick={() => {navigate("/thankyou")}}>
+                Place Order
             </Button>
         </Form>
     </div>

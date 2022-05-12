@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import Chekout from './components/pages/Chekout';
 import About from './components/pages/About';
 import ProductPage from './components/pages/ProductPage';
+import Thankyou from './components/pages/Thankyou';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/chekout" element={<Chekout />} />
         <Route path="/about" element={<About />} />
         <Route path="/product" element={<ProductPage />} />
+        <Route path="thankyou" element={<Thankyou />} />
       </Routes>
       <Footer/>
     </div>
