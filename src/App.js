@@ -8,6 +8,7 @@ import Chekout from './components/pages/Chekout';
 import About from './components/pages/About';
 import ProductPage from './components/pages/ProductPage';
 import Thankyou from './components/pages/Thankyou';
+import Category from './components/pages/Category';
 
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
         <Route path="/chekout" element={<Chekout />} />
         <Route path="/about" element={<About />} />
         <Route path="/product" element={<ProductPage />} />
-        <Route path="thankyou" element={<Thankyou />} />
+        <Route path="/category" element={<Category />} />
+        <Route path="/thankyou" element={<Thankyou />} />
       </Routes>
       <Footer/>
     </div>

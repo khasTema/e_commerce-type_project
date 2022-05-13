@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Card, Container } from 'react-bootstrap';
+import { Button, Card, Container, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { BiShare } from 'react-icons/bi';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
@@ -25,11 +25,20 @@ const ProductPage = () => {
           <div className="button_group" style={{display: 'flex'}}>
             <Button variant='danger' style={{marginRight: '.3em'}}>ADD TO CART</Button>
 
-            <Button variant='success' style={{marginRight: '.3em'}} onClick={() => setIsLiked(prev => !prev)}>
-              {isLiked ? <AiFillHeart/> : <AiOutlineHeart/>}
-            </Button>
+            <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">{isLiked ? 'Already Liked!' : 'Like this product?'}</Tooltip>}>
+              <span className="d-inline-block">
+                <Button variant='success' style={{marginRight: '.3em'}} onClick={() => setIsLiked(prev => !prev)}>
+                  {isLiked ? <AiFillHeart/> : <AiOutlineHeart/>}
+                </Button>
+              </span>
+            </OverlayTrigger>
 
-            <Button variant='warning' style={{marginRight: '.3em'}}><BiShare/></Button>
+            <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Copy link</Tooltip>}>
+              <span className="d-inline-block">
+                <Button variant='warning' style={{marginRight: '.3em'}}><BiShare/></Button>
+              </span>
+            </OverlayTrigger>
+
           </div>
         </Card>
       </Container>
