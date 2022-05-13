@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../images/logo_transparent.png'
+import logo from '../../images/logo_transparent.png';
 import { 
     Badge,
     Button, 
@@ -9,7 +9,8 @@ import {
     Nav, 
     Navbar, 
     NavbarBrand, 
-    NavLink 
+    NavLink,
+    NavDropdown 
 } from 'react-bootstrap';
 import { RiSearch2Line, RiShoppingCartLine } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom';
@@ -28,9 +29,18 @@ const Header = () => {
                     </div>
                 </NavbarBrand>
                 <Nav>
+
                     <NavLink onClick={() => {navigate('/')}} >Home</NavLink>
+
+                    <NavDropdown title="Store">
+                        <NavDropdown.Item onClick={() => {navigate('/category')}}>Man</NavDropdown.Item>
+                        <NavDropdown.Item onClick={() => {navigate('/category')}}>Woman</NavDropdown.Item>
+                        <NavDropdown.Item onClick={() => {navigate('/category')}}>Accesorize</NavDropdown.Item>
+                    </NavDropdown>
+
                     <NavLink onClick={() => {navigate('/chekout')}} >Chekout</NavLink>
                     <NavLink onClick={() => {navigate('/about')}} >About</NavLink>
+                    
                 </Nav>
                 <Form className="d-flex">
                     <FormControl
