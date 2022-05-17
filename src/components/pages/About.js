@@ -3,6 +3,8 @@ import logo from '../../images/logo_transparent.png';
 import { Container } from 'react-bootstrap';
 
 const About = () => {
+
+ 
   return (
     <div className='about'>
         <Container>
