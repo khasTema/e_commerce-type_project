@@ -1,20 +1,19 @@
-import React, {createContext, useState } from 'react';
+import React, { createContext, useState } from 'react';
 
-const { Provider, Consumer } = createContext();
+export const MyContext = createContext();
 
-const contextProvider = () => {
-
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [someData, setSomeData] = useState('BIGA VARIABLE');
+export default function CotextProvider (props) {
+  //this is all temp states, please clear it in About and ThankYou components
+  //Yeah it is working!!!!!
+// eslint-disable-next-line
+  const [anything, setAnything] = useState('New State from Context')
+  const [ anotherThing, setAnotherThing ] = useState(25)
 
   return (
-    <Provider
-        value={someData}
+    <MyContext.Provider
+      value={{anything, setAnything, anotherThing, setAnotherThing}}
     >
-    </Provider>
+      {props.children}
+    </MyContext.Provider>
   )
 }
-
-
-export { contextProvider }
-export default Consumer;

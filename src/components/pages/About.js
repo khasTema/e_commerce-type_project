@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import logo from '../../images/logo_transparent.png';
 import { Container } from 'react-bootstrap';
+import { MyContext } from '../context/configContext';
+
 
 const About = () => {
 
+  const {anything, setAnything} = useContext(MyContext)
  
   return (
     <div className='about'>
@@ -13,6 +16,7 @@ const About = () => {
             </div>
             <h2 className='display-3 text-center'>About</h2>
             <h5>Lorem ipsum dolor sit ammet</h5>
+            <button onClick={() => setAnything('Some thing from About Component')}>{anything}</button>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
         </Container>
     </div>
