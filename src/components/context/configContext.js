@@ -7,6 +7,7 @@ export default function CotextProvider (props) {
   const [ products, setProducts ] = useState([])
   const [ displayCategory, setDisplayCategory ] = useState('products')
   //console.log('category is ' + displayCategory)
+  
 
  
 
