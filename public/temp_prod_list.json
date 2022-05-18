@@ -6,82 +6,91 @@
         "id": 74692668,
         "prod_name": "Shoes To Go #1",
         "prod_brand": "GENOVA",
-        "prod_pic": "https://picsum.photos/75/50?random=5",
+        "prod_pic": "https://picsum.photos/800/400?random=1",
         "prod_descr": "Lorem ipsum dolor sit ammet, nisan render quitim page. Let out in stock, for the chances",
         "prod_category": "man",
-        "prod_price": 33.45
+        "prod_price": 33.45,
+        "featured": true
     },
     {
         "id": 839974004,
         "prod_name": "Boots On Lem #2",
         "prod_brand": "BERRAN",
-        "prod_pic": "https://picsum.photos/75/50?random=3",
+        "prod_pic": "https://picsum.photos/800/400?random=2",
         "prod_descr": "Lorem ipsum dolor sit ammet, nisan render quitim page. Let out in stock, for the chances",
         "prod_category": "man",
-        "prod_price": 76.99
+        "prod_price": 76.99,
+        "featured": false
     },
     {
         "id": 838949402,
         "prod_name": "Shoes To Go #5",
         "prod_brand": "LIARTO",
-        "prod_pic": "https://picsum.photos/75/50?random=6",
+        "prod_pic": "https://picsum.photos/800/400?random=3",
         "prod_descr": "Lorem ipsum dolor sit ammet, nisan render quitim page. Let out in stock, for the chances",
         "prod_category": "man",
-        "prod_price": 82.78
+        "prod_price": 82.78,
+        "featured": false
     },
     {
         "id": 9040373922,
         "prod_name": "Steps AT Your #4",
         "prod_brand": "GENOVA",
-        "prod_pic": "https://picsum.photos/75/50?random=2",
+        "prod_pic": "https://picsum.photos/800/400?random=4",
         "prod_descr": "Lorem ipsum dolor sit ammet, nisan render quitim page. Let out in stock, for the chances",
         "prod_category": "woman",
-        "prod_price": 56.88
+        "prod_price": 56.88,
+        "featured": true
     },
     {
         "id": 2339944887,
         "prod_name": "Laps Nach Bol #4",
         "prod_brand": "LATORYA",
-        "prod_pic": "https://picsum.photos/75/50?random=1",
+        "prod_pic": "https://picsum.photos/800/400?random=5",
         "prod_descr": "Lorem ipsum dolor sit ammet, nisan render quitim page. Let out in stock, for the chances",
         "prod_category": "woman",
-        "prod_price": 367.99
+        "prod_price": 367.99,
+        "featured": false
     },
     {
         "id": 25648820032,
         "prod_name": "Greeks IN Bol #4",
         "prod_brand": "RINOVER",
-        "prod_pic": "https://picsum.photos/75/50?random=4",
+        "prod_pic": "https://picsum.photos/800/400?random=6",
         "prod_descr": "Lorem ipsum dolor sit ammet, nisan render quitim page. Let out in stock, for the chances",
         "prod_category": "woman",
-        "prod_price": 256.99
+        "prod_price": 256.99,
+        "featured": false
     },
     {
         "id": 376748302,
         "prod_name": "Glasses in Town #7",
         "prod_brand": "ROY-ROY",
-        "prod_pic": "https://picsum.photos/75/50?random=3",
+        "prod_pic": "https://picsum.photos/800/400?random=7",
         "prod_descr": "Lorem ipsum dolor sit ammet, nisan render quitim page. Let out in stock, for the chances",
         "prod_category": "accessories",
-        "prod_price": 45.99
+        "prod_price": 45.99,
+        "featured": false
     },
     {
         "id": 83839930082,
         "prod_name": "Wallet ON #19",
         "prod_brand": "BARANES",
-        "prod_pic": "https://picsum.photos/75/50?random=8",
+        "prod_pic": "https://picsum.photos/800/400?random=8",
         "prod_descr": "Lorem ipsum dolor sit ammet, nisan render quitim page. Let out in stock, for the chances",
         "prod_category": "accessories",
-        "prod_price": 32.99
+        "prod_price": 32.99,
+        "featured": false
     },
     {
         "id": 834784930082,
         "prod_name": "Wallet ON #45",
         "prod_brand": "BARANES",
-        "prod_pic": "https://picsum.photos/75/50?random=9",
+        "prod_pic": "https://picsum.photos/800/400?random=9",
         "prod_descr": "Lorem ipsum dolor sit ammet, nisan render quitim page. Let out in stock, for the chances",
         "prod_category": "accessories",
-        "prod_price": 32.99
+        "prod_price": 32.99,
+        "featured": true
     }
     
 ]}

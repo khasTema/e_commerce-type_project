@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import ProductCard from './ProductCard';
 import { MyContext } from '../context/configContext';
