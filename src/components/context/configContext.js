@@ -1,17 +1,32 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
 export const MyContext = createContext();
 
 export default function CotextProvider (props) {
-  //this is all temp states, please clear it in About and ThankYou components
-  //Yeah it is working!!!!!
-// eslint-disable-next-line
-  const [anything, setAnything] = useState('New State from Context')
-  const [ anotherThing, setAnotherThing ] = useState(25)
+
+  const [ products, setProducts ] = useState([])
+  const [ displayCategory, setDisplayCategory ] = useState('products')
+  //console.log('category is ' + displayCategory)
+
+ 
+
+  useEffect(() => {
+    let url = 'temp_prod_list.json'
+    // JSON file in public folder, 
+    fetch(url)
+      .then(res => res.json())
+      .then(data => setProducts(
+        displayCategory === 'products' ? 
+            data.product_list 
+            : 
+            data.product_list.filter(product => product.prod_category === displayCategory )
+        ))
+      
+  }, [displayCategory])
 
   return (
     <MyContext.Provider
-      value={{anything, setAnything, anotherThing, setAnotherThing}}
+      value={{products, setDisplayCategory, displayCategory}}
     >
       {props.children}
     </MyContext.Provider>

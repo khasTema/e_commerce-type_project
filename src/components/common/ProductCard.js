@@ -22,7 +22,8 @@ const ProductCard = ({
                 <Card.Text>
                     <p>{product_brand} {product_description}</p>
                     <span>Price: {product_price}$</span>
-                    <span>Category: {product_category}$</span>
+                    <br/>
+                    <span>Category: {product_category}</span>
                 </Card.Text>
                 <Button variant="danger" size="sm" style={{marginRight: '1em'}}>ADD TO CART</Button>
                 <Button variant="outline-secondary" size="sm" onClick={()=>{navigate("/product")}}>VIEW PRODUCT</Button>

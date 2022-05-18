@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext} from 'react';
 import logo from '../../images/logo_transparent.png';
 import { 
     Badge,
@@ -14,28 +14,31 @@ import {
 } from 'react-bootstrap';
 import { RiSearch2Line, RiShoppingCartLine } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom';
+import { MyContext } from '../context/configContext';
 
 const Header = () => {
 
     let navigate = useNavigate();
+    const { setDisplayCategory } = useContext(MyContext);
 
   return (
     <div>
         <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
-                <NavbarBrand onClick={() => {navigate('/')}}>
+                <NavbarBrand onClick={() => {navigate('/'); setDisplayCategory('products');}}>
                     <div className="logo_place" style={{width: 175, height: 75, cursor: "pointer"}}>
                         <img src={logo} alt="some shop logo" style={{width:"100%", height: "100%",objectFit: 'cover'}}/>
                     </div>
                 </NavbarBrand>
                 <Nav>
 
-                    <NavLink onClick={() => {navigate('/')}} >Home</NavLink>
+                    <NavLink onClick={() => {navigate('/'); setDisplayCategory('products');}} >Home</NavLink>
 
                     <NavDropdown title="Store">
-                        <NavDropdown.Item onClick={() => {navigate('/category')}}>Man</NavDropdown.Item>
-                        <NavDropdown.Item onClick={() => {navigate('/category')}}>Woman</NavDropdown.Item>
-                        <NavDropdown.Item onClick={() => {navigate('/category')}}>Accesorize</NavDropdown.Item>
+                        <NavDropdown.Item 
+                            onClick={() => {navigate('/category'); setDisplayCategory('man');}}>Man</NavDropdown.Item>
+                        <NavDropdown.Item onClick={() => {navigate('/category'); setDisplayCategory('woman');}}>Woman</NavDropdown.Item>
+                        <NavDropdown.Item onClick={() => {navigate('/category'); setDisplayCategory('accessories');}}>Accesorize</NavDropdown.Item>
                     </NavDropdown>
 
                     <NavLink onClick={() => {navigate('/chekout')}} >Chekout</NavLink>
