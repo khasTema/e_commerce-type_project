@@ -1,6 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { Card, Col, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+
 
 const ProductCard = ({
     product_brand, 
@@ -8,24 +9,28 @@ const ProductCard = ({
     product_description, 
     product_image, 
     product_name, 
-    product_price
+    product_price,
+    handleAddToCart,
+    addedProduct
 }) => {
 
     let navigate = useNavigate();
+    
 
   return (
-    <Col style={{display:"flex", justifiContent:"center"}}>
+    <Col style={{display:"flex", justifiContent:"center"}} ref={addedProduct}>
         <Card style={{ width: '30%', minWidth: '18em', marginTop: '2em' }}>
             <Card.Img variant="top" src={product_image} />
             <Card.Body>
-                <Card.Title>{product_name}</Card.Title>
+                <Card.Title >{product_name}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">{product_brand}</Card.Subtitle>
                 <Card.Text>
-                    <p>{product_brand} {product_description}</p>
+                    <p>{product_description}</p>
                     <span>Price: {product_price}$</span>
                     <br/>
-                    <span>Category: {product_category}</span>
+                    <span className="mb-2 text-muted">Category: {product_category}</span>
                 </Card.Text>
-                <Button variant="danger" size="sm" style={{marginRight: '1em'}}>ADD TO CART</Button>
+                <Button variant="danger" size="sm" style={{marginRight: '1em'}} onClick={(addedProduct) => handleAddToCart()}>ADD TO CART</Button>
                 <Button variant="outline-secondary" size="sm" onClick={()=>{navigate("/product")}}>VIEW PRODUCT</Button>
             </Card.Body>
         </Card>

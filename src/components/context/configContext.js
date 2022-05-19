@@ -27,7 +27,7 @@ export default function CotextProvider (props) {
 
   return (
     <MyContext.Provider
-      value={{products, setDisplayCategory, displayCategory, itemsInCart}}
+      value={{products, setDisplayCategory, displayCategory, itemsInCart, setItemsInCart}}
     >
       {props.children}
     </MyContext.Provider>
