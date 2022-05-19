@@ -11,7 +11,7 @@ const Store = () => {
   const { products, displayCategory } = useContext(MyContext)
 
   return (
-    <div className='store'>
+    <div className='store' style={{marginTop: '2em'}}>
         <Container text-center>
             <h1 className="display-2 text-center" style={{textTransform: 'capitalize'}}>{displayCategory}</h1>
             <Row>

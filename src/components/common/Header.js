@@ -19,7 +19,7 @@ import { MyContext } from '../context/configContext';
 const Header = () => {
 
     let navigate = useNavigate();
-    const { setDisplayCategory } = useContext(MyContext);
+    const { setDisplayCategory, itemsInCart } = useContext(MyContext);
 
   return (
     <div>
@@ -57,7 +57,7 @@ const Header = () => {
                 </Form>
                 <Button variant="warning" onClick={()=> {navigate('/chekout')}} >
                     <RiShoppingCartLine/>
-                    <Badge pill bg="danger">10</Badge>
+                    <Badge pill bg="danger">{itemsInCart.length}</Badge>
                 </Button> 
             </Container>
         </Navbar>

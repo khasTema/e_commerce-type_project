@@ -14,7 +14,7 @@ const ProductCard = ({
     let navigate = useNavigate();
 
   return (
-    <Col>
+    <Col style={{display:"flex", justifiContent:"center"}}>
         <Card style={{ width: '30%', minWidth: '18em', marginTop: '2em' }}>
             <Card.Img variant="top" src={product_image} />
             <Card.Body>

@@ -7,7 +7,7 @@ export default function CotextProvider (props) {
   const [ products, setProducts ] = useState([])
   const [ displayCategory, setDisplayCategory ] = useState('products')
   //console.log('category is ' + displayCategory)
-  
+  const [ itemsInCart, setItemsInCart ] = useState([])
 
  
 
@@ -27,7 +27,7 @@ export default function CotextProvider (props) {
 
   return (
     <MyContext.Provider
-      value={{products, setDisplayCategory, displayCategory}}
+      value={{products, setDisplayCategory, displayCategory, itemsInCart}}
     >
       {props.children}
     </MyContext.Provider>
