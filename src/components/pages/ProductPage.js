@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import { Button, Card, Container, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { BiShare } from 'react-icons/bi';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
@@ -6,12 +6,17 @@ import { MyContext } from '../context/configContext';
 
 const ProductPage = () => {
 
-  const [ isLiked, setIsLiked ] = useState(false)
-  const { itemOnProductPage } = useContext(MyContext)
-  console.log(itemOnProductPage)
+  const [ isLiked, setIsLiked] = useState(false)
+  const { itemOnProductPage , setItemsInCart, products } = useContext(MyContext)
+  const cardRef = useRef()
+
+  function handleAddToCart(){
+    // i put an index of zero since i want to return an object to array, in other way it returns aray of arrays
+    setItemsInCart(prev => [...prev, products.filter(product => product.id === Number(cardRef.current.id))[0]]);
+}
 
   return (
-    <div>
+    <div id={itemOnProductPage.id} ref={cardRef}>
       <Container style={{display: 'flex', justifyContent: 'space-between'}}>
         <div className="product_image" style={{width:"48%"}}>
           <img src={itemOnProductPage.prod_pic} alt="product" style={{width: '100%'}}/>
@@ -26,7 +31,7 @@ const ProductPage = () => {
             Price: {itemOnProductPage.prod_price}$ <br/>  <span style={{color: "#717980"}}>MSRP:{itemOnProductPage.prod_price + 10}$</span>
           </Card.Text>
           <div className="button_group" style={{display: 'flex'}}>
-            <Button variant='danger' style={{marginRight: '.3em'}}>ADD TO CART</Button>
+            <Button variant='danger' style={{marginRight: '.3em'}} onClick={(cardRef) => handleAddToCart()}>ADD TO CART</Button>
 
             <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">{isLiked ? 'Already Liked!' : 'Like this product?'}</Tooltip>}>
               <span className="d-inline-block">
