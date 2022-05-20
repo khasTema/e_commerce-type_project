@@ -1,42 +1,20 @@
-import React, { useContext } from 'react';
-import { Container } from 'react-bootstrap';
+import React, { useContext, useState } from 'react';
+import { Button, Container } from 'react-bootstrap';
 import ChekoutTable from '../utilites/ChekoutTable';
 import UserInfoForm from '../utilites/UserInfoForm';
 import { MyContext } from '../context/configContext';
 
-// //temp data
-// const tempData = [
-//   {
-//     prod_name: 'Some product #1',
-//     prod_pic: 'https://picsum.photos/75/50?random=5',
-//     prod_price: 33.45
-//   },
-//   {
-//     prod_name: 'Another product #2',
-//     prod_pic: 'https://picsum.photos/75/50?random=6',
-//     prod_price: 67.89
-//   },
-//   {
-//     prod_name: 'New product #3',
-//     prod_pic: 'https://picsum.photos/75/50?random=2',
-//     prod_price: 24.99
-//   },
-//   {
-//     prod_name: 'Old product #4',
-//     prod_pic: 'https://picsum.photos/75/50?random=3',
-//     prod_price: 17.88
-//   }
-// ]
-// //temp to del ^^^
 
 const Chekout = () => {
 
   const { itemsInCart } = useContext(MyContext)
-  console.log(itemsInCart)
+  // console.log(itemsInCart)
+  const [formIsShown, setFormIsShown] = useState(false)
 
   return (
     <div className="chekout" style={{margin: '2em auto'}}>
       <Container>
+        {itemsInCart.length < 1 && <h3 classname='display-6'>Your cart is empty. Please add products...</h3>}
         <div className="chekouts">
           {itemsInCart.map((product, index) => (
             <ChekoutTable 
@@ -46,9 +24,10 @@ const Chekout = () => {
             />
           ))}
           
-          <h3 className='display-6' style={{textAlign: 'right'}}>Total: <span>34</span>$</h3>
+          {itemsInCart.length > 1 && <h3 className='display-6' style={{textAlign: 'right'}}>Total: <span>0</span>$</h3>}
         </div>
-        <UserInfoForm/>
+        {itemsInCart.length > 1 && <Button variant='danger' onClick={() => setFormIsShown(prev => !prev)}>Proceed Chekout</Button>}
+        {formIsShown && <UserInfoForm/>}
       </Container>
     </div>
   )
