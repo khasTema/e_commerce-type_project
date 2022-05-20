@@ -16,11 +16,16 @@ const ProductCard = ({
 
     let navigate = useNavigate();
     const cardRef = useRef()
-    const {setItemsInCart, products} = useContext(MyContext)
+    const {setItemsInCart, products, setItemOnProductPage} = useContext(MyContext)
 
     function handleAddToCart(){
         // i put an index of zero since i want to return an object to array, in other way it returns aray of arrays
         setItemsInCart(prev => [...prev, products.filter(product => product.id === Number(cardRef.current.id))[0]]);
+    }
+
+    function handleViewProduct(){
+        setItemOnProductPage(products.filter(product => product.id === Number(cardRef.current.id))[0]);
+        navigate("/product");
     }
 
   return (
@@ -37,7 +42,7 @@ const ProductCard = ({
                     <span className="mb-2 text-muted">Category: {product_category}</span>
                 </Card.Text>
                 <Button variant="danger" size="sm" style={{marginRight: '1em'}} onClick={(cardRef) => handleAddToCart()}>ADD TO CART</Button>
-                <Button variant="outline-secondary" size="sm" onClick={()=>{navigate("/product")}}>VIEW PRODUCT</Button>
+                <Button variant="outline-secondary" size="sm" onClick={(cardRef)=> handleViewProduct()}>VIEW PRODUCT</Button>
             </Card.Body>
         </Card>
     </Col>

@@ -5,10 +5,12 @@ export const MyContext = createContext();
 export default function CotextProvider (props) {
 
   const [ products, setProducts ] = useState([])
-  console.log(products)
+  // console.log(products)
   const [ displayCategory, setDisplayCategory ] = useState('products')
   //console.log('category is ' + displayCategory)
   const [ itemsInCart, setItemsInCart ] = useState([])
+  const [ itemOnProductPage, setItemOnProductPage ] = useState([])
+  
 
  
 
@@ -28,7 +30,12 @@ export default function CotextProvider (props) {
 
   return (
     <MyContext.Provider
-      value={{products, setDisplayCategory, displayCategory, itemsInCart, setItemsInCart}}
+      value={{
+        products, setDisplayCategory, 
+        displayCategory, 
+        itemsInCart, setItemsInCart, 
+        itemOnProductPage, setItemOnProductPage
+      }}
     >
       {props.children}
     </MyContext.Provider>

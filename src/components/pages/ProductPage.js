@@ -1,26 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Button, Card, Container, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { BiShare } from 'react-icons/bi';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
+import { MyContext } from '../context/configContext';
 
 const ProductPage = () => {
 
   const [ isLiked, setIsLiked ] = useState(false)
+  const { itemOnProductPage } = useContext(MyContext)
+  console.log(itemOnProductPage)
 
   return (
     <div>
       <Container style={{display: 'flex', justifyContent: 'space-between'}}>
         <div className="product_image" style={{width:"48%"}}>
-          <img src="https://picsum.photos/200/150?random=3" alt="product" style={{width: '100%'}}/>
+          <img src={itemOnProductPage.prod_pic} alt="product" style={{width: '100%'}}/>
         </div>
         <Card style={{width: '48%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', border: 'none'}}>
-          <Card.Title className='display-4'>Product Name</Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">Short description</Card.Subtitle>
+          <Card.Title className='display-4'>{itemOnProductPage.prod_name}</Card.Title>
+          <Card.Subtitle className="mb-2 text-muted">{itemOnProductPage.prod_brand}</Card.Subtitle>
           <Card.Text>
-            Something about the product that is represented on this page. In order you would like to sell it fater.
+            {itemOnProductPage.prod_descr}
           </Card.Text>
           <Card.Text>
-            Price: 45.88$  MSRP: 50.99$
+            Price: {itemOnProductPage.prod_price}$ <br/>  <span style={{color: "#717980"}}>MSRP:{itemOnProductPage.prod_price + 10}$</span>
           </Card.Text>
           <div className="button_group" style={{display: 'flex'}}>
             <Button variant='danger' style={{marginRight: '.3em'}}>ADD TO CART</Button>
