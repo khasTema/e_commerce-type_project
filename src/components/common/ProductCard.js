@@ -1,9 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
 import { Card, Col, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { MyContext } from '../context/configContext';
 
 
 const ProductCard = ({
+    product_id,
     product_brand, 
     product_category, 
     product_description, 
@@ -14,14 +16,16 @@ const ProductCard = ({
 
     let navigate = useNavigate();
     const cardRef = useRef()
+    const {setItemsInCart, products} = useContext(MyContext)
 
     function handleAddToCart(){
-        console.log(cardRef.current)
-      }
-    
+        console.log(cardRef.current.id);
+        setItemsInCart(prev => [...prev, products.filter(product => product.id === Number(cardRef.current.id))])
+        
+    }
 
   return (
-    <Col style={{display:"flex", justifiContent:"center"}} ref={cardRef}>
+    <Col style={{display:"flex", justifiContent:"center"}} id={product_id} ref={cardRef}>
         <Card style={{ width: '30%', minWidth: '18em', marginTop: '2em' }}>
             <Card.Img variant="top" src={product_image} />
             <Card.Body>

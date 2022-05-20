@@ -18,7 +18,7 @@ const Store = () => {
             <Row>
                { products.map(product => (
                      <ProductCard
-                      
+                      product_id={product.id}
                       key={product.id} 
                       product_brand={product.prod_brand} 
                       product_category={product.prod_category} 
