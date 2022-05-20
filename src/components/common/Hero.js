@@ -6,7 +6,13 @@ import { MyContext } from '../context/configContext';
 const Hero = () => {
 
     let navigate = useNavigate();
-    const {products} = useContext(MyContext)
+    const {products, setDisplayCategory} = useContext(MyContext)
+
+    function handleLearnMore(){
+        setDisplayCategory('man');
+        navigate('/category');
+    }
+   
 
   return (
     <>
@@ -25,7 +31,7 @@ const Hero = () => {
                         <Button 
                             variant="outline-light" 
                             size="lg" 
-                            onClick={() => {navigate('/product')}}
+                            onClick={() => handleLearnMore()}
                         >
                             LEARN MORE
                         </Button>
