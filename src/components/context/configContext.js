@@ -5,6 +5,7 @@ export const MyContext = createContext();
 export default function CotextProvider (props) {
 
   const [ products, setProducts ] = useState([])
+  console.log(products)
   const [ displayCategory, setDisplayCategory ] = useState('products')
   //console.log('category is ' + displayCategory)
   const [ itemsInCart, setItemsInCart ] = useState([])

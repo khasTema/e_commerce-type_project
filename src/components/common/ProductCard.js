@@ -19,9 +19,8 @@ const ProductCard = ({
     const {setItemsInCart, products} = useContext(MyContext)
 
     function handleAddToCart(){
-        console.log(cardRef.current.id);
-        setItemsInCart(prev => [...prev, products.filter(product => product.id === Number(cardRef.current.id))])
-        
+        // i put an index of zero since i want to return an object to array, in other way it returns aray of arrays
+        setItemsInCart(prev => [...prev, products.filter(product => product.id === Number(cardRef.current.id))[0]]);
     }
 
   return (
