@@ -29,17 +29,12 @@ const ProductCard = ({
   return (
     <Col
         className="collon"
-        style={{
-            display:"flex",
-            justifiContent:"center"
-        }}
         id={product_id}
         ref={cardRef}
     >
         <Card
             classname="collon__card"
             style={{
-                width: '30%',
                 minWidth: '18em',
                 marginTop: '2em'
             }}

@@ -1,4 +1,5 @@
 import React, { useState, useContext, useRef } from 'react';
+import '../../styles/ProductPage.css'
 import { 
   Button, 
   Card, 
@@ -32,16 +33,10 @@ const ProductPage = () => {
       ref={cardRef}
     >
       <Container 
-        style={{
-          display: 'flex', 
-          justifyContent: 'space-between'
-        }}
+        className='product_page_container'
       >
         <div 
           className="product_image" 
-          style={{
-            width:"48%"
-          }}
         >
           <img 
             src={itemOnProductPage.prod_pic} 
@@ -52,13 +47,7 @@ const ProductPage = () => {
           />
         </div>
         <Card 
-          style={{
-            width: '48%', 
-            display: 'flex', 
-            flexDirection: 'column', 
-            justifyContent: 'space-between', 
-            border: 'none'
-          }}
+          className="product_page_card"
         >
           <Card.Title 
             className='display-4'

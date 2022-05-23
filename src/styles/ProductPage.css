@@ -1,0 +1,31 @@
+.product_page_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  
+    padding: 2em;
+}
+
+.product_page_container .product_img {
+    width: 100%;
+}
+
+.product_page_container .product_page_card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: none;
+    padding: 1em;
+}
+
+@media (min-width: 900px) {
+    .product_page_container {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .product_page_container .product_img,
+    .product_page_container .product_page_card {
+        width: 48%;
+    }
+}
