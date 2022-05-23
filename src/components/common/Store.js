@@ -1,4 +1,5 @@
 import React, { useContext} from 'react';
+import '../../styles/Store.css'
 import { Container, Row } from 'react-bootstrap';
 import ProductCard from './ProductCard';
 import { MyContext } from '../context/configContext';

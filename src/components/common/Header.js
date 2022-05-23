@@ -1,4 +1,5 @@
 import React, { useContext} from 'react';
+import '../../styles/Header.css'
 import logo from '../../images/logo_transparent.png';
 import { 
     Badge,
@@ -28,7 +29,7 @@ const Header = () => {
             variant="dark" 
             expand="lg"
         >
-            <Container>
+            <Container className='navbar__container'>
                 <NavbarBrand 
                     onClick={() => {
                         navigate('/'); 
@@ -116,6 +117,7 @@ const Header = () => {
                     </Button>
                 </Form>
                 <Button 
+                    className="btn-cart"
                     variant="warning" 
                     onClick={()=> {
                         navigate('/chekout')
