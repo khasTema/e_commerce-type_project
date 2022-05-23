@@ -19,21 +19,38 @@ const ProductCard = ({
     const cardRef = useRef()
     const {setItemsInCart, products, setItemOnProductPage, notify} = useContext(MyContext)
 
-
     function handleAddToCart(){
-        // i put an index of zero since i want to return an object to array, in other way it returns aray of arrays
         setItemsInCart(prev => [...prev, products.filter(product => product.id === Number(cardRef.current.id))[0]]);
         notify();
     }
+  
 
     function handleViewProduct(){
         setItemOnProductPage(products.filter(product => product.id === Number(cardRef.current.id))[0]);
         navigate("/product");
     }
   return (
-    <Col className="collon" style={{display:"flex", justifiContent:"center"}} id={product_id} ref={cardRef}>
-        <Card classname="collon__card" style={{ width: '30%', minWidth: '18em', marginTop: '2em' }}>
-            <Card.Img variant="top" src={product_image} />
+    <Col 
+        className="collon" 
+        style={{
+            display:"flex", 
+            justifiContent:"center"
+        }} 
+        id={product_id} 
+        ref={cardRef}
+    >
+        <Card 
+            classname="collon__card" 
+            style={{ 
+                width: '30%', 
+                minWidth: '18em', 
+                marginTop: '2em' 
+            }}
+        >
+            <Card.Img 
+                variant="top" 
+                src={product_image} 
+            />
             <Card.Body>
                 <Card.Title >{product_name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{product_brand}</Card.Subtitle>
@@ -43,8 +60,23 @@ const ProductCard = ({
                     <br/>
                     <span className="mb-2 text-muted">Category: {product_category}</span>
                 </Card.Text>
-                <Button variant="danger" size="sm" style={{marginRight: '1em'}} onClick={(cardRef) => handleAddToCart()}>ADD TO CART</Button>
-                <Button variant="outline-secondary" size="sm" onClick={(cardRef)=> handleViewProduct()}>VIEW PRODUCT</Button>
+                <Button 
+                    variant="danger" 
+                    size="sm" 
+                    style={{
+                        marginRight: '1em'
+                    }} 
+                    onClick={(cardRef) => handleAddToCart()}
+                >
+                    ADD TO CART
+                </Button>
+                <Button 
+                    variant="outline-secondary" 
+                    size="sm" 
+                    onClick={(cardRef)=> handleViewProduct()}
+                >
+                    VIEW PRODUCT
+                </Button>
             </Card.Body>
         </Card>
     </Col>

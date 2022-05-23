@@ -9,7 +9,6 @@ import ContinueButton from '../utilites/ContinueButton';
 const Chekout = () => {
 
   const { itemsInCart } = useContext(MyContext)
-  // console.log(itemsInCart)
   const [formIsShown, setFormIsShown] = useState(false)
 
   function totalCost() {
@@ -20,12 +19,20 @@ const Chekout = () => {
     return result.toFixed(2)
   }
 
- 
-
   return (
-    <div className="chekout" style={{margin: '2em auto', width: "70%"}}>
+    <div 
+      className="chekout" 
+      style={{
+        margin: '2em auto', 
+        width: "70%"
+      }}
+    >
       <Container>
-        {itemsInCart.length < 1 && <h3 classname='display-6'>Your cart is empty. Please add products...</h3>}
+        {
+          itemsInCart.length < 1 
+          && 
+          <h3 classname='display-6'>Your cart is empty. Please add products...</h3>
+        }
         <div className="chekouts" >
           {itemsInCart.map((product) => (
             <ChekoutTable 
@@ -35,10 +42,31 @@ const Chekout = () => {
               price={product.prod_price}
             />
           ))}
-          
-          {itemsInCart.length > 0 && <h3 className='display-6' style={{textAlign: 'right'}}>Total: <span>{totalCost()}</span>$</h3>}
+          {
+            itemsInCart.length > 0 
+            && 
+            <h3 
+              className='display-6' 
+              style={{
+                textAlign: 'right'
+              }}
+            >
+              Total: 
+                <span>
+                  {totalCost()}
+                </span>$
+            </h3>
+          }
         </div>
-        {itemsInCart.length > 0 && <Button variant='danger' onClick={() => setFormIsShown(prev => !prev)}>Proceed Chekout</Button>}
+        {
+          itemsInCart.length > 0 
+          && 
+          <Button 
+            variant='danger' 
+            onClick={() => setFormIsShown(prev => !prev)}
+          >
+            Proceed Chekout
+          </Button>}
         <ContinueButton/>
         {formIsShown && <UserInfoForm/>}
       </Container>

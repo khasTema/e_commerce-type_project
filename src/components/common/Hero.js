@@ -18,7 +18,6 @@ const Hero = () => {
     <>
         <Carousel fade>
             {products.filter(product => product.featured).map(product => (
-
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
@@ -37,9 +36,7 @@ const Hero = () => {
                         </Button>
                     </Carousel.Caption> 
                 </Carousel.Item>
-            ))}
-
-           
+            ))}   
         </Carousel>
     </>
   )

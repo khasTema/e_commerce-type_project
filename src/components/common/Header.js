@@ -23,29 +23,89 @@ const Header = () => {
 
   return (
     <div>
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar 
+            bg="dark" 
+            variant="dark" 
+            expand="lg"
+        >
             <Container>
-                <NavbarBrand onClick={() => {navigate('/'); setDisplayCategory('products');}}>
-                    <div className="logo_place" style={{width: 175, height: 75, cursor: "pointer"}}>
-                        <img src={logo} alt="some shop logo" style={{width:"100%", height: "100%",objectFit: 'cover'}}/>
+                <NavbarBrand 
+                    onClick={() => {
+                        navigate('/'); 
+                        setDisplayCategory('products');
+                    }}>
+                    <div 
+                        className="logo_place" 
+                        style={{
+                            width: 175, 
+                            height: 75, 
+                            cursor: "pointer"
+                        }}>
+                        <img 
+                            src={logo} 
+                            alt="some shop logo" 
+                            style={{
+                                width:"100%", 
+                                height: "100%",
+                                objectFit: 'cover'
+                            }}/>
                     </div>
                 </NavbarBrand>
                 <Nav>
-
-                    <NavLink onClick={() => {navigate('/'); setDisplayCategory('products');}} >Home</NavLink>
-
-                    <NavDropdown title="Store">
+                    <NavLink 
+                        onClick={() => {
+                            navigate('/'); 
+                            setDisplayCategory('products');
+                        }} 
+                    >
+                        Home
+                    </NavLink>
+                    <NavDropdown 
+                        title="Store"
+                    >
                         <NavDropdown.Item 
-                            onClick={() => {navigate('/category'); setDisplayCategory('man');}}>Man</NavDropdown.Item>
-                        <NavDropdown.Item onClick={() => {navigate('/category'); setDisplayCategory('woman');}}>Woman</NavDropdown.Item>
-                        <NavDropdown.Item onClick={() => {navigate('/category'); setDisplayCategory('accessories');}}>Accesorize</NavDropdown.Item>
+                            onClick={() => {
+                                navigate('/category'); 
+                                setDisplayCategory('man');
+                            }}
+                        >
+                                Man
+                        </NavDropdown.Item>
+                        <NavDropdown.Item 
+                            onClick={() => {
+                                navigate('/category'); 
+                                setDisplayCategory('woman');
+                            }}
+                        >
+                            Woman
+                        </NavDropdown.Item>
+                        <NavDropdown.Item 
+                            onClick={() => {
+                                navigate('/category'); 
+                                setDisplayCategory('accessories');
+                            }}
+                        >
+                            Accesorize
+                        </NavDropdown.Item>
                     </NavDropdown>
-
-                    <NavLink onClick={() => {navigate('/chekout')}} >Chekout</NavLink>
-                    <NavLink onClick={() => {navigate('/about')}} >About</NavLink>
-                    
+                    <NavLink 
+                        onClick={() => {
+                            navigate('/chekout')
+                        }} 
+                    >
+                        Chekout
+                    </NavLink>
+                    <NavLink 
+                        onClick={() => {
+                            navigate('/about')
+                        }} 
+                    >
+                        About
+                    </NavLink>
                 </Nav>
-                <Form className="d-flex">
+                <Form 
+                    className="d-flex"
+                >
                     <FormControl
                         type="search"
                         placeholder="Search products..."
@@ -55,7 +115,12 @@ const Header = () => {
                         <RiSearch2Line/>
                     </Button>
                 </Form>
-                <Button variant="warning" onClick={()=> {navigate('/chekout')}} >
+                <Button 
+                    variant="warning" 
+                    onClick={()=> {
+                        navigate('/chekout')
+                    }} 
+                >
                     <RiShoppingCartLine/>
                     <Badge pill bg="danger">{itemsInCart.length}</Badge>
                 </Button> 

@@ -2,16 +2,25 @@ import React from 'react';
 import logo from '../../images/logo_transparent.png';
 import { Container } from 'react-bootstrap';
 
-
-
-const About = () => {
-
- 
+const About = () => { 
   return (
     <div className='about'>
         <Container>
-            <div className="logo-big" style={{width: '40%', maxWidth: '300px', margin: '1em auto'}}>
-              <img src={logo} alt="this shop logo" style={{width: '100%'}}/>
+            <div 
+              className="logo-big" 
+              style={{
+                width: '40%', 
+                maxWidth: '300px', 
+                margin: '1em auto'
+              }}
+            >
+              <img 
+                src={logo} 
+                alt="this shop logo" 
+                style={{
+                  width: '100%'
+                }}
+              />
             </div>
             <h2 className='display-3 text-center'>About</h2>
             <h5>Lorem ipsum dolor sit ammet</h5>
