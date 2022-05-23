@@ -1,17 +1,47 @@
-import React from 'react'
+import React, { useRef, useContext } from 'react'
 import { Button } from 'react-bootstrap';
+import { MyContext } from '../context/configContext';
 
-const ChekoutTable = () => {
+const ChekoutTable = ({price, image, product_name, id}) => {
+
+  const { setItemsInCart } = useContext(MyContext)
+  const cardRef = useRef()
+
+  function handleDeleteItem(){
+    setItemsInCart(prev => prev.filter(product => product.id !== Number(cardRef.current.id)));
+  }
+
   return (
-    <div className='checkOutTable' style={{display: 'flex', justifyContent: 'space-between', margin: '1.5em auto', alignItems: 'center'}}>
-        <img src="https://picsum.photos/75/50?random=5" alt="prod pic" />
-        <h5 className='display-6'>Product name</h5>
-        <Button variant="success" size='sm'>-</Button>
-        <span>Quantity: 0</span>
-        <Button variant="success" size='sm'>+</Button>
-        <Button variant="danger" size='sm'>DELETE</Button>
-        <Button variant="warning" disabled>33$</Button>
-        <hr/>
+    <div 
+      className='checkOutTable' 
+      id={id} 
+      style={{
+        display: 'flex', 
+        justifyContent: 'space-between', 
+        margin: '1.5em auto', 
+        alignItems: 'center', 
+        borderBottom: "1px solid #000", 
+        paddingBottom: "1em"
+      }} 
+      ref={cardRef}
+    >
+      <img 
+        src={image} 
+        alt="prod pic" 
+        style={{
+          width: '100px', 
+          height: '50px'
+        }}
+      />
+      <h5 className='display-7'>{product_name}</h5>
+      <Button 
+        variant="danger" 
+        size='sm' 
+        onClick={(cardRef) => handleDeleteItem()}
+      >
+        DELETE
+      </Button>
+      <span className='display-7'>{(price).toFixed(2)}$</span>
     </div>
   )
 }
