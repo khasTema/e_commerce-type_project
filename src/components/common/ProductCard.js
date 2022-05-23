@@ -3,15 +3,13 @@ import { Card, Col, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { MyContext } from '../context/configContext';
 
-
-
 const ProductCard = ({
     product_id,
-    product_brand, 
-    product_category, 
-    product_description, 
-    product_image, 
-    product_name, 
+    product_brand,
+    product_category,
+    product_description,
+    product_image,
+    product_name,
     product_price
 }) => {
 
@@ -23,33 +21,32 @@ const ProductCard = ({
         setItemsInCart(prev => [...prev, products.filter(product => product.id === Number(cardRef.current.id))[0]]);
         notify();
     }
-  
 
     function handleViewProduct(){
         setItemOnProductPage(products.filter(product => product.id === Number(cardRef.current.id))[0]);
         navigate("/product");
     }
   return (
-    <Col 
-        className="collon" 
+    <Col
+        className="collon"
         style={{
-            display:"flex", 
+            display:"flex",
             justifiContent:"center"
-        }} 
-        id={product_id} 
+        }}
+        id={product_id}
         ref={cardRef}
     >
-        <Card 
-            classname="collon__card" 
-            style={{ 
-                width: '30%', 
-                minWidth: '18em', 
-                marginTop: '2em' 
+        <Card
+            classname="collon__card"
+            style={{
+                width: '30%',
+                minWidth: '18em',
+                marginTop: '2em'
             }}
         >
-            <Card.Img 
-                variant="top" 
-                src={product_image} 
+            <Card.Img
+                variant="top"
+                src={product_image}
             />
             <Card.Body>
                 <Card.Title >{product_name}</Card.Title>
