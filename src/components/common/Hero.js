@@ -1,70 +1,42 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Carousel, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { MyContext } from '../context/configContext';
 
 const Hero = () => {
 
     let navigate = useNavigate();
+    const {products, setDisplayCategory} = useContext(MyContext)
+
+    function handleLearnMore(){
+        setDisplayCategory('man');
+        navigate('/category');
+    }
+   
 
   return (
     <>
         <Carousel fade>
-            <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src="https://picsum.photos/800/400?random=1"
-                    alt="first slide"
-                />
-                <Carousel.Caption>
-                    <h3>Some TEXT here #1</h3>
-                    <p>lorem ipsum dolor sit ammet</p>
-                    <Button 
-                        variant="outline-light" 
-                        size="lg" 
-                        onClick={() => {navigate('/about')}}
-                    >
-                        LEARN MORE
-                    </Button>
-                </Carousel.Caption> 
-            </Carousel.Item>
-
-            <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src="https://picsum.photos/800/400?random=2"
-                    alt="second slide"
-                />
-                <Carousel.Caption>
-                    <h3>Some TEXT here #2</h3>
-                    <p>and now the new second slide</p>
-                    <Button 
-                        variant="outline-light" 
-                        size="lg" 
-                        onClick={() => {navigate('/about')}}
-                    >
-                        LEARN MORE
-                    </Button>
-                </Carousel.Caption>  
-            </Carousel.Item>
-            
-            <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src="https://picsum.photos/800/400?random=3"
-                    alt="third slide"
-                />
-                <Carousel.Caption>
-                    <h3>Some TEXT here #3</h3>
-                    <p>here is the third slider</p>
-                    <Button 
-                        variant="outline-light" 
-                        size="lg" 
-                        onClick={() => {navigate('/about')}}
-                    >
-                        LEARN MORE
-                    </Button>
-                </Carousel.Caption>  
-            </Carousel.Item>
+            {products.filter(product => product.featured).map(product => (
+                <Carousel.Item>
+                    <img
+                        className="d-block w-100"
+                        src={product.prod_pic}
+                        alt="first slide"
+                    />
+                    <Carousel.Caption>
+                        <h3>{product.prod_name}</h3>
+                        <p>Brand: {product.prod_brand}</p>
+                        <Button 
+                            variant="outline-light" 
+                            size="lg" 
+                            onClick={() => handleLearnMore()}
+                        >
+                            LEARN MORE
+                        </Button>
+                    </Carousel.Caption> 
+                </Carousel.Item>
+            ))}   
         </Carousel>
     </>
   )
