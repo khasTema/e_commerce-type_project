@@ -1,15 +1,15 @@
 import React, { createContext, useState, useEffect } from 'react';
+import toast from 'react-hot-toast';
 
 export const MyContext = createContext();
 
 export default function CotextProvider (props) {
 
   const [ products, setProducts ] = useState([])
-  // console.log(products)
   const [ displayCategory, setDisplayCategory ] = useState('products')
-  //console.log('category is ' + displayCategory)
   const [ itemsInCart, setItemsInCart ] = useState([])
   const [ itemOnProductPage, setItemOnProductPage ] = useState([])
+  const notify = () => toast.success('Product Added To Cart');
   
 
  
@@ -34,7 +34,8 @@ export default function CotextProvider (props) {
         products, setDisplayCategory, 
         displayCategory, 
         itemsInCart, setItemsInCart, 
-        itemOnProductPage, setItemOnProductPage
+        itemOnProductPage, setItemOnProductPage,
+        notify
       }}
     >
       {props.children}

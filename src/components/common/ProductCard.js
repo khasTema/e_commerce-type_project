@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { MyContext } from '../context/configContext';
 
 
+
 const ProductCard = ({
     product_id,
     product_brand, 
@@ -11,26 +12,27 @@ const ProductCard = ({
     product_description, 
     product_image, 
     product_name, 
-    product_price,
+    product_price
 }) => {
 
     let navigate = useNavigate();
     const cardRef = useRef()
-    const {setItemsInCart, products, setItemOnProductPage} = useContext(MyContext)
+    const {setItemsInCart, products, setItemOnProductPage, notify} = useContext(MyContext)
+
 
     function handleAddToCart(){
         // i put an index of zero since i want to return an object to array, in other way it returns aray of arrays
         setItemsInCart(prev => [...prev, products.filter(product => product.id === Number(cardRef.current.id))[0]]);
+        notify();
     }
 
     function handleViewProduct(){
         setItemOnProductPage(products.filter(product => product.id === Number(cardRef.current.id))[0]);
         navigate("/product");
     }
-
   return (
-    <Col style={{display:"flex", justifiContent:"center"}} id={product_id} ref={cardRef}>
-        <Card style={{ width: '30%', minWidth: '18em', marginTop: '2em' }}>
+    <Col className="collon" style={{display:"flex", justifiContent:"center"}} id={product_id} ref={cardRef}>
+        <Card classname="collon__card" style={{ width: '30%', minWidth: '18em', marginTop: '2em' }}>
             <Card.Img variant="top" src={product_image} />
             <Card.Body>
                 <Card.Title >{product_name}</Card.Title>

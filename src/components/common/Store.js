@@ -2,6 +2,9 @@ import React, { useContext} from 'react';
 import { Container, Row } from 'react-bootstrap';
 import ProductCard from './ProductCard';
 import { MyContext } from '../context/configContext';
+import Toastery from '../utilites/Toastery';
+
+
 
 
 
@@ -9,6 +12,8 @@ import { MyContext } from '../context/configContext';
 const Store = () => {
  
   const { products, displayCategory } = useContext(MyContext)
+
+  
   
 
   return (
@@ -30,6 +35,7 @@ const Store = () => {
                    ))}               
             </Row>
         </Container>
+        <Toastery/>
     </div>
   )
 }

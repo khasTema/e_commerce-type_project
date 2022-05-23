@@ -3,16 +3,18 @@ import { Button, Card, Container, OverlayTrigger, Tooltip } from 'react-bootstra
 import { BiShare } from 'react-icons/bi';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { MyContext } from '../context/configContext';
+import Toastery from '../utilites/Toastery';
 
 const ProductPage = () => {
 
   const [ isLiked, setIsLiked] = useState(false)
-  const { itemOnProductPage , setItemsInCart, products } = useContext(MyContext)
+  const { itemOnProductPage , setItemsInCart, products, notify } = useContext(MyContext)
   const cardRef = useRef()
 
   function handleAddToCart(){
     // i put an index of zero since i want to return an object to array, in other way it returns aray of arrays
     setItemsInCart(prev => [...prev, products.filter(product => product.id === Number(cardRef.current.id))[0]]);
+    notify();
 }
 
   return (
@@ -50,6 +52,7 @@ const ProductPage = () => {
           </div>
         </Card>
       </Container>
+      <Toastery/>
     </div>
   )
 }
