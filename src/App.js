@@ -11,7 +11,7 @@ import Thankyou from './components/pages/Thankyou';
 import Category from './components/pages/Category';
 import ContextProvider from './components/context/configContext'
 
-//this master bramch only 13.05.22
+//this master bramch only 23.05.22
 
 function App() {
 
